@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'package:hotels/const/custom.dart';
+import 'package:hotels/views/customerbookinghistory.dart';
 import 'package:hotels/views/editprofile.dart';
 
 
@@ -26,14 +27,31 @@ class _MyprofileState extends State<Myprofile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     
         body:SingleChildScrollView(
           child: Column(
                children: [
              Stack(children: [
             Container(  
-              width: 1.2.sw,height: 1.sh,
-               child: Image.asset('assets/johnsmith.png',height: 1.sw,  width: 1.sw,fit: BoxFit.fill,),
+              width: 1.2.sw,height: .80.sh,
+               child: Image.asset('assets/johnsmith.png',height: .80.sw,  width: 1.sw,fit: BoxFit.fill,),
                ),
+
+Padding(
+  padding: const EdgeInsets.only(top:50,left:330 ,),
+  child:   GestureDetector( onTap: (){
+
+  showDialog(context: context, builder: (BuildContext context){
+
+    return SimpleDialog('title');
+  }
+  );
+
+
+  },
+    
+    child: Icon(Icons.more_vert)),
+),
         
                Padding(
                  padding: const EdgeInsets.only(top:450,left:30 ,right:30  ),
@@ -63,7 +81,7 @@ class _MyprofileState extends State<Myprofile> {
 
                ),
           Padding(
-            padding: const EdgeInsets.only(top: 430,left: 350),
+            padding: const EdgeInsets.only(top: 430,left: 290),
             child: GestureDetector(
               onTap: (){Get.to(Editprofile());},
               child: CircleAvatar(
@@ -78,7 +96,7 @@ class _MyprofileState extends State<Myprofile> {
           ),
            Padding(
           padding: const EdgeInsets.only(top:620,left: 15,right: 15),
-          child: Container(   width: 1.sw,height: .35.sh,
+          child: Container(   width: 1.sw,height: .40.sh,
           
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
           gradient: LinearGradient(
@@ -149,7 +167,7 @@ Row(
     
     children: [
        Text("Expiry date",style: TextStyle(color: Colors.white70,fontSize: 20),),
-       SizedBox( width: 160,height: 30,
+       SizedBox( width: 110,height: 30,
          child: TextFormField(
   decoration: const InputDecoration(
    // icon: Icon(Icons.person),
@@ -220,6 +238,37 @@ Row(
                           
           ),
         ),
+    );
+  }
+}
+
+
+
+
+class SimpleDialog extends StatelessWidget {
+ // const Alertdialouge({ Key? key }) : super(key: key);
+final title;
+SimpleDialog(this.title);
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 130,bottom: 290),
+      child: Container( width: 50,height: 50,
+    //  decoration: BoxDecoration(color: Colors.blue),
+        child: AlertDialog(
+          backgroundColor: Colors.blue,
+          actionsPadding: EdgeInsets.zero,
+          
+        //  title: Text("hello  shouvik"),
+        //  content:Text("sarkhel") ,
+          actions: [
+
+            new FlatButton(onPressed: (){Get.to(Customerbookinghistory());}, child: Text("Room Booking History",style: TextStyle(fontSize: 10),)),
+           // new FlatButton(onPressed: (){Navigator.of(context).pop();}, child: Text("Room Booking")),
+               new FlatButton(onPressed: (){Get.to(Customerbookinghistory());}, child: Text("Change Password",style: TextStyle(fontSize: 10),)),
+          ],
+        ),
+      ),
     );
   }
 }

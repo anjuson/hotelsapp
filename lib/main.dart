@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             },
             theme: ThemeData(
               textTheme: TextTheme(
-                  button: TextStyle(fontSize: 45.sp)
+                  button: TextStyle(fontSize: 18.sp)
               ),
             ),
             home:const SplashScreen(),
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
     @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 4),
+    Timer(const Duration(seconds:4),
           ()=>Navigator.pushReplacement(context,
            MaterialPageRoute(builder:
             (context) => 
@@ -65,9 +65,29 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container(
-    color: Colors.white ,
-      child: Image(image: const AssetImage("assets/splash.png",),width: 1.sw,height: double.infinity,fit: BoxFit.cover,),
+    return Scaffold(
+      body: Container( height: 1.sh,width: 1.sw,
+      color: Colors.white ,
+        child: Stack(children: [
+          
+          Image(image: const AssetImage("assets/splashbackground.png",),width: 1.sw,height: 1.sh,fit: BoxFit.cover,),
+        
+           Padding(
+             padding: const EdgeInsets.only(top: 15),
+             child: Center(child: Container(
+               width:.5.sw,height: .3.sh,             
+               child: Image(image: const AssetImage("assets/splash.png",),width:.5.sw,height: .3.sh,fit: BoxFit.fill,))),
+           ),
+             Padding(
+               padding: const EdgeInsets.only(top: 345),
+               child: Center(child: Text("Find Hotel",style: TextStyle(fontSize: 50,color: Colors.white),)),
+             ),
+    
+    
+                     
+        
+        ]),
+      ),
     );
     
      

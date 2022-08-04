@@ -6,6 +6,8 @@ import 'package:hotels/const/custom.dart';
 import 'package:hotels/homepage.dart';
 import 'package:hotels/signin.dart';
 
+import 'package:hotels/auth/verifyaccount.dart';
+
 class Forgotpassword extends StatefulWidget {
   const Forgotpassword({ Key? key }) : super(key: key);
 
@@ -25,19 +27,21 @@ class _ForgotpasswordState extends State<Forgotpassword> {
   child: Stack(
   children: [
   Container(
-    height: 1.40.sh,
+    height: 1.sh,
     width: 1.sw,
     child: Gradientcolor(),
     ),
 
    Padding(
-     padding: const EdgeInsets.only(left: 19,top: 105,bottom: 19,right: 21),
+     padding: const EdgeInsets.only(left: 19,top: 55,bottom: 19,right: 21),
      child: Text("Forgot Password?",style: TextStyle(fontSize: 24,color: Colors.white),),
    ),
 
 Padding(
-  padding: const EdgeInsets.only(top: 150,left: 19,right: 19,bottom: 19),
-  child:   Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
+  padding: const EdgeInsets.only(top: 100,left: 19,right: 19,bottom: 19),
+  child:   Container(
+     width: 380,height: .8.sh,
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
   
     child: Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -82,7 +86,7 @@ Padding(
              
 
                 SizedBox(width: 305,height: 43,
-                   child: Button(text2: 'Submit', color2: Colors.white, ijkl: (){Get.to(Signin());},),
+                   child: Button(text2: 'Submit', color2: Colors.white, ijkl: (){Get.to(Verifyaccount());},),
                  ),
 
               ],
@@ -93,9 +97,9 @@ Padding(
   
     ),
   
-    height: 796,
+   // height: 796,
   
-    width: 380,
+   
   
     ),
 ),

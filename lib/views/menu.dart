@@ -10,8 +10,10 @@ import 'package:hotels/homepage.dart';
 import 'package:hotels/const/custom.dart';
 import 'package:hotels/signin.dart';
 import 'package:hotels/auth/forgotpassword.dart';
+import 'package:hotels/views/Settingsmenu.dart';
 import 'package:hotels/views/hotel.dart';
 import 'package:hotels/views/myprofile.dart';
+import 'package:hotels/views/carbooking.dart';
 
 
 
@@ -37,19 +39,22 @@ int _selectedIndex = 0;
     // ),
 	      Hotel(),
 	
-	 Text(
-      'Index 1: Car booking',
-      style: optionStyle,
-    ),
+	//  Text(
+  //     'Index 1: Car booking',
+  //     style: optionStyle,
+  //   ),
+  Carbooking(),
     Text(
       'Index 2: Car washing',
       style: optionStyle,
     ),
    Myprofile(),
-    Text(
-      'Index 4: Settings',
-      style: optionStyle,
-    ),
+
+   Settingsmenu(),
+    // Text(
+    //   'Index 4: Settings',
+    //   style: optionStyle,
+    // ),
   ];
 
   void _onItemTapped(int index) {
@@ -65,16 +70,14 @@ int _selectedIndex = 0;
              // appBar: AppBar(
              //   title: const Text('BottomNavigationBar Sample'),
              // ),
-             body: SingleChildScrollView( scrollDirection: Axis.vertical,
-               child: Column(
-                 children: [
-                   Container(height: 1.sh,
-                     child: Center(
-                           child: _widgetOptions.elementAt(_selectedIndex),
-                     ),
+             body: Column(
+               children: [
+                 Container(height: .85.sh,
+                   child: Center(
+                         child: _widgetOptions.elementAt(_selectedIndex),
                    ),
-                 ],
-               ),
+                 ),
+               ],
              ),
              bottomNavigationBar: Container(
                decoration: BoxDecoration(
